@@ -1,0 +1,12 @@
+web:
+  build: .
+  ports:
+    - "5000:5000"
+  links:
+    - redis
+
+redis:
+  image: redis
+  command: redis-server --appendonly yes
+  volumes:
+    - "redisdata:/data"
